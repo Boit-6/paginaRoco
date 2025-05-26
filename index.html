@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./public/coin.png" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Coin Converter</title>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+        <div class="hero-section">
+          <h2>What is Game Coin Converter?</h2>
+          <p class="description">
+            Game Coin Converter is a free tool that allows you to easily convert the virtual currencies 
+            from your favorite games to Argentine pesos. Whether you're planning a purchase or just want to know the 
+            real value of your virtual currencies, we're here to help!
+          </p>
+        </div>
+
+        <div class="features">
+          <div class="feature-card">
+            <h3>🎮 Supported Games.</h3>
+            <p>Robux, Clash Royale Gems, Fortnite V-Bucks, and more...</p>
+          </div>
+          <div class="feature-card">
+            <h3>💱 Real-Time Conversion.</h3>
+            <p>Values updated according to the current market</p>
+          </div>
+          <div class="feature-card">
+            <h3>💰 Easy to Use.</h3>
+            <p>Interfaz intuitiva y conversión instantánea</p>
+          </div>
+        </div>
+
+        <div class="arcade-screen">
+          <div class="screen-content">
+            <h2>¡Try the Converter!</h2>
+            <p>Select the game and the amount of coins you want to convert.</p>
+
+            <form class="form" onsubmit="event.preventDefault(); convertAndDisplay();">
+              <div class="form-group">
+                <label for="game">Games: </label>
+                <select name="game" id="game">
+                  <option value="robux">Robux</option>
+                  <option value="gemas">Clash Royale Gems</option>
+                  <option value="pavos">V-Bucks</option>
+                </select>
+              </div>
+            
+              <div class="form-group">
+                <label for="amount">Amount: </label>
+                <input type="number" name="amount" id="amount" placeholder="Virtual currency" required />
+              </div>
+              
+              <button type="submit">Convert</button>
+              <div id="result" class="result-display">Result: </div>
+            </form>            
+          </div>
+        </div>
+        
+        <div class="how-to-use">
+          <h2>How Does It Work?</h2>
+          <ol>
+            <li>Select the game of your choice</li>
+            <li>Enter the amount of virtual coins</li>
+            <li>¡Get the value in Argentine pesos instantly!</li>
+          </ol>
+        </div>
+      </main>
+      
+      <footer>
+        <p class="footer-text">Made with <span class="pixel-heart">❤️</span> by 'Page not found'</p>
+      </footer>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+    <script src="src/js/auth.js"></script>
+  </body>
+</html>

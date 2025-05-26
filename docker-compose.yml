@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "0.0.0.0:8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_DATABASE: roco_db
+      DB_USERNAME: roco_user
+      DB_PASSWORD: roco_password
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "0.0.0.0:3307:3306"
+    environment:
+      MYSQL_DATABASE: roco_db
+      MYSQL_USER: roco_user
+      MYSQL_PASSWORD: roco_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+
+volumes:
+  mysql_data: 

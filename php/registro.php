@@ -44,12 +44,16 @@ try {
 
     // Insertar usuario
     $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)");
-    $stmt->execute([$nombre, $email, $passwordHash]);
+    $result = $stmt->execute([$nombre, $email, $passwordHash]);
 
-    echo json_encode([
-        'success' => true,
-        'message' => 'Usuario registrado correctamente'
-    ]);
+    if ($result) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Usuario registrado correctamente'
+        ]);
+    } else {
+        throw new Exception('Error al registrar el usuario');
+    }
 
 } catch (Exception $e) {
     http_response_code(400);

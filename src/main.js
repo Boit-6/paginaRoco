@@ -49,3 +49,11 @@ function convertAndDisplay() {
 // Add header to the page
 document.body.prepend(createHeader());
 
+// Exponer la función al ámbito global
+window.convertAndDisplay = convertAndDisplay;
+
+document.getElementById('convertForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  convertAndDisplay();
+});
+
